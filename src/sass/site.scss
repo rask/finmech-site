@@ -1,0 +1,193 @@
+//
+// site.scss
+//
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    line-height: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+}
+
+html {
+    font-size: 62.5%; // 1rem ~= 10px
+}
+
+body {
+    min-height: 100vh;
+    font-size: 1.8em;
+    font-family: 'IBM Plex Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    color: white;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+body > header {
+    padding: 3rem;
+    text-align: center;
+    background: #111;
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+body > footer {
+    justify-self: flex-end;
+    background: #111;
+    color: #999;
+    text-align: center;
+    padding: 5rem 3rem;
+}
+
+body > main {
+    background: #181818;
+    flex-grow: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+article {
+    padding: 8rem 3rem;
+
+    & > * {
+        width: 100%;
+        max-width: 64rem;
+        margin: 0 auto;
+    }
+
+    & > * + * {
+        margin-top: 1.5em;
+    }
+
+    & > p:first-child {
+        font-size: 133%;
+    }
+
+    .home & {
+        text-align: center;
+    }
+}
+
+.banners {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+    flex-grow: 999;
+
+    $meetup: #F64060;
+    $discord: #7289da;
+
+    .banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 999;
+        text-align: center;
+        background-size: cover;
+        background-blend-mode: overlay;
+        text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
+    }
+
+    .banner .inbox {
+        max-width: 54rem;
+        padding: 6rem 4rem;
+
+        & > * + * {
+            margin-top: 1.5em;
+        }
+    }
+
+    .banner a {
+        display: inline-block;
+        border-radius: 0.5rem;
+        padding: 1ex 2ex;
+        background: #555;
+        font-weight: 200;
+        font-size: 2rem;
+        text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+    }
+
+    .banner img {
+        display: none;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .banner.meetup {
+        background-image: url(../img/meetup2.jpg);
+        background-color: mix(black, $meetup, 85%);
+    }
+
+    .banner.meetup a {
+        background-color: $meetup;
+    }
+
+    .banner.discord {
+        background-image: url(../img/keebs2.jpg);
+        background-color: mix(black, $discord, 85%);
+    }
+
+    .banner.discord a {
+        background-color: $discord;
+    }
+
+    @media screen and (min-width: 960px) {
+        flex-direction: row;
+
+        .banner:nth-child(even) {
+            .inbox {
+                align-self: flex-start;
+            }
+        }
+
+        .banner:nth-child(odd) {
+            .inbox {
+                align-self: flex-end;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        .banner.meetup {
+            background-image: url(../img/meetup1.jpg);
+        }
+
+        .banner.discord {
+            background-image: url(../img/keebs1.jpg);
+        }
+    }
+}
