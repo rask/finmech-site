@@ -2,9 +2,12 @@
     "name": "finmech-site",
     "private": true,
     "devDependencies": {
+        "autoprefixer": "^9.0.0",
+        "browser-sync": "^2.24.5",
         "gulp": "^3.9.1",
         "gulp-clean-css": "^3.9.4",
         "gulp-imagemin": "^4.1.0",
+        "gulp-postcss": "^7.0.1",
         "gulp-sass": "^4.0.1"
     }
 }
